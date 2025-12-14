@@ -1,4 +1,4 @@
-# Backend API - Property Rental System
+# Backend API - 
 
 Industrial-grade Node.js/TypeScript backend with role-based authentication.
 
