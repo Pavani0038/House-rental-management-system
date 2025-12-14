@@ -1,0 +1,69 @@
+<div class="dashboard-container">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <h2>Owner Portal</h2>
+    </div>
+    <div class="navbar-menu">
+      <span class="user-info">Welcome, {{ currentUser?.firstName }}!</span>
+      <button (click)="logout()" class="btn-logout">Logout</button>
+    </div>
+  </nav>
+
+  <div class="dashboard-content">
+    <div class="dashboard-header">
+      <h1>Owner Dashboard</h1>
+      <p>Manage your properties and bookings</p>
+    </div>
+
+    <div class="dashboard-grid">
+      <div class="card">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          </svg>
+        </div>
+        <h3>My Properties</h3>
+        <p>View and manage all your properties</p>
+        <a routerLink="/owner/properties" class="card-link">Manage Properties →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="16"></line>
+            <line x1="8" y1="12" x2="16" y2="12"></line>
+          </svg>
+        </div>
+        <h3>Add Property</h3>
+        <p>List a new property for rent</p>
+        <a routerLink="/owner/properties/add" class="card-link">Add New Property →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+          </svg>
+        </div>
+        <h3>Booking Requests</h3>
+        <p>Review and manage tenant booking requests</p>
+        <a routerLink="/owner/bookings" class="card-link">View Requests →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="1" x2="12" y2="23"></line>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </div>
+        <h3>Revenue</h3>
+        <p>Track your rental income and analytics</p>
+        <a routerLink="/owner/revenue" class="card-link">View Revenue →</a>
+      </div>
+    </div>
+  </div>
+</div>

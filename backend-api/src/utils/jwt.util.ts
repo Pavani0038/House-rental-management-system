@@ -6,7 +6,7 @@ export class JWTUtil {
   static generateToken(payload: JWTPayload): string {
     return jwt.sign(payload, config.jwt.secret, {
       expiresIn: config.jwt.expiresIn
-    });
+    } as jwt.SignOptions);
   }
 
   static verifyToken(token: string): JWTPayload | null {

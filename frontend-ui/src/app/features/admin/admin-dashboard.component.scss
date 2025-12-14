@@ -1,0 +1,146 @@
+.dashboard-container {
+  min-height: 100vh;
+  background: #f7fafc;
+}
+
+.navbar {
+  background: white;
+  padding: 16px 32px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .navbar-brand h2 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 20px;
+  }
+
+  .navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .user-info {
+      color: #4a5568;
+      font-size: 14px;
+    }
+
+    .btn-logout {
+      padding: 8px 16px;
+      background: #f56565;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: #e53e3e;
+      }
+    }
+  }
+}
+
+.dashboard-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  .dashboard-header {
+    margin-bottom: 40px;
+
+    h1 {
+      font-size: 32px;
+      color: #2d3748;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: #718096;
+      font-size: 16px;
+    }
+  }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-icon {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+
+        svg {
+          color: white;
+        }
+      }
+
+      h3 {
+        font-size: 20px;
+        color: #2d3748;
+        margin-bottom: 8px;
+      }
+
+      p {
+        color: #718096;
+        font-size: 14px;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .card-link {
+        color: #ed8936;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #dd6b20;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 16px 20px;
+
+    .navbar-menu {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+  }
+
+  .dashboard-content {
+    padding: 24px 16px;
+
+    .dashboard-header h1 {
+      font-size: 24px;
+    }
+  }
+}

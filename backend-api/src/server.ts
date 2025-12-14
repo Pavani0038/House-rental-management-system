@@ -33,7 +33,7 @@ class Server {
 
     // Request logging in development
     if (config.nodeEnv === 'development') {
-      this.app.use((req, res, next) => {
+      this.app.use((req, _res, next) => {
         console.log(`${req.method} ${req.path}`);
         next();
       });

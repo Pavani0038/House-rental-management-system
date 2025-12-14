@@ -1,0 +1,159 @@
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <div class="nav-content">
+      <div class="logo">
+        <h2>🏠 RentEase</h2>
+      </div>
+      <nav class="nav-links">
+        <a routerLink="/login" class="nav-link">Login</a>
+        <a routerLink="/register" class="btn-primary">Get Started</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Find Your Perfect Home</h1>
+      <p>Discover the best rental properties in your desired location</p>
+    </div>
+  </div>
+</section>
+
+<!-- Search Section -->
+<section class="search-section">
+  <div class="container">
+    <div class="search-card">
+      <h3>Search Properties</h3>
+      <form class="search-form">
+        <div class="search-row">
+          <div class="form-group">
+            <label>Location</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Enter city or area"
+              [(ngModel)]="searchQuery.location"
+              name="location">
+          </div>
+          
+          <div class="form-group">
+            <label>Min Budget (₹)</label>
+            <input 
+              type="number" 
+              class="form-control" 
+              placeholder="Min rent"
+              [(ngModel)]="searchQuery.minBudget"
+              name="minBudget">
+          </div>
+          
+          <div class="form-group">
+            <label>Max Budget (₹)</label>
+            <input 
+              type="number" 
+              class="form-control" 
+              placeholder="Max rent"
+              [(ngModel)]="searchQuery.maxBudget"
+              name="maxBudget">
+          </div>
+          
+          <div class="form-group">
+            <label>Bedrooms</label>
+            <select class="form-control" [(ngModel)]="searchQuery.bedrooms" name="bedrooms">
+              <option value="">Any</option>
+              <option value="1">1 BHK</option>
+              <option value="2">2 BHK</option>
+              <option value="3">3 BHK</option>
+              <option value="4">4+ BHK</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="search-actions">
+          <button type="button" class="btn-search" (click)="searchProperties()">
+            🔍 Search
+          </button>
+          <button type="button" class="btn-reset" (click)="resetSearch()">
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Properties Section -->
+<section class="properties-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Available Properties</h2>
+      <p>{{ filteredProperties.length }} properties found</p>
+    </div>
+    
+    <div class="properties-grid">
+      <div class="property-card" *ngFor="let property of filteredProperties">
+        <div class="property-image">
+          <img [src]="property.image" [alt]="property.title">
+          <span class="badge-available" *ngIf="property.available">Available</span>
+        </div>
+        
+        <div class="property-content">
+          <h3>{{ property.title }}</h3>
+          <p class="location">📍 {{ property.location }}</p>
+          
+          <div class="property-details">
+            <span>🛏️ {{ property.bedrooms }} Bed</span>
+            <span>🚿 {{ property.bathrooms }} Bath</span>
+            <span>📐 {{ property.area }} sqft</span>
+          </div>
+          
+          <div class="amenities">
+            <span class="amenity-tag" *ngFor="let amenity of property.amenities">
+              {{ amenity }}
+            </span>
+          </div>
+          
+          <div class="property-footer">
+            <div class="price">
+              <span class="amount">₹{{ property.rent | number }}</span>
+              <span class="period">/month</span>
+            </div>
+            <button class="btn-view" routerLink="/login">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="no-results" *ngIf="filteredProperties.length === 0">
+      <h3>No properties found</h3>
+      <p>Try adjusting your search filters</p>
+      <button class="btn-reset" (click)="resetSearch()">Reset Filters</button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Ready to Find Your Home?</h2>
+      <p>Join thousands of happy tenants and property owners</p>
+      <div class="cta-buttons">
+        <a routerLink="/register" class="btn-cta-primary">Register as Tenant</a>
+        <a routerLink="/register" class="btn-cta-secondary">List Your Property</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2025 RentEase. All rights reserved.</p>
+  </div>
+</footer>

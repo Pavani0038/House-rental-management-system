@@ -1,7 +1,7 @@
 import { UserModel } from '../models/user.model';
 import { PasswordUtil } from '../utils/password.util';
 import { JWTUtil } from '../utils/jwt.util';
-import { LoginRequest, RegisterRequest, AuthResponse, UserRole, JWTPayload } from '../types';
+import { LoginRequest, RegisterRequest, AuthResponse, JWTPayload } from '../types';
 
 export class AuthService {
   static async login(credentials: LoginRequest): Promise<AuthResponse> {

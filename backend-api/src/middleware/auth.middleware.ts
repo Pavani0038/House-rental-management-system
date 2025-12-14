@@ -45,7 +45,7 @@ export class AuthMiddleware {
     };
   }
 
-  static optionalAuth(req: AuthenticatedRequest, res: Response, next: NextFunction): void {
+  static optionalAuth(req: AuthenticatedRequest, _res: Response, next: NextFunction): void {
     try {
       const authHeader = req.headers.authorization;
 

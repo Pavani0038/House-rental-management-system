@@ -1,4 +1,4 @@
-import { LoginRequest, RegisterRequest, UserRole } from '../types';
+import { UserRole } from '../types';
 
 export class AuthValidator {
   static validateEmail(email: string): { valid: boolean; error?: string } {
